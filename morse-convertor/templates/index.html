@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Text → Morse Converter</title>
+  <style>
+    body { font-family: sans-serif; max-width: 600px; margin: 2em auto; }
+    textarea { width: 100%; height: 4em; }
+    pre { background: #f4f4f4; padding: 1em; white-space: pre-wrap; }
+    button { padding: 0.5em 1em; font-size: 1em; }
+  </style>
+</head>
+<body>
+  <h1>Text to Morse Code</h1>
+  <form method="post">
+    <label for="text">Enter text:</label><br>
+    <textarea id="text" name="text" required>{{ request.form.text or '' }}</textarea><br><br>
+    <button type="submit">Convert</button>
+  </form>
+
+  {% if morse %}
+    <h2>Result:</h2>
+    <pre>{{ morse }}</pre>
+  {% endif %}
+</body>
+</html>
